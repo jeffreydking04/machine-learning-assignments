@@ -4,7 +4,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
-
 federation_meet = Table(
     "federation_meet",
     Base.metadata,
@@ -19,13 +18,6 @@ location_meet = Table(
     Column("meet_id", Integer, ForeignKey("meet.meet_id")),
 )
 
-athlete_lift = Table(
-    "athlete_lift",
-    Base.metadata,
-    Column("athlete_id", Integer, ForeignKey("athlete.athlete_id")),
-    Column("lift_id", Integer, ForeignKey("lift.lift_id")),
-)
-
 class Athlete_Info(Base):
     __tablename__ = "ahtlete_info"
     athlete_info_id = Column(Integer, primary_key=True)
@@ -36,9 +28,7 @@ class Athlete(Base):
     __tablename__ = "athlete"
     athlete_id = Column(Integer, primary_key=True)
     name = Column(String)
-    lifts = relationship(
-        "Lift", secondary=athlete_lift, back_populates="athletes"
-    )
+    lifts = relationship("Lift", backref=backref("athlete"))
 
 class Federation(Base):
     __tablename__ = "federation"
@@ -50,11 +40,23 @@ class Federation(Base):
 
 class Lift(Base):
     __tablename__ = "lift"
+    athlete_id = Column(Integer, ForeignKey("athlete.athlete_id"))
     lift_id = Column(Integer, primary_key=True)
-    name = Column(String)
-    athletes = relationship(
-        "Athlete", secondary=athlete_lift, back_populates="lifts"
-    )
+    squat_1_kg = Column(Float)    
+    squat_2_kg = Column(Float)    
+    squat_3_kg = Column(Float)    
+    squat_4_kg = Column(Float)    
+    best_3_squat_kg = Column(Float)    
+    bench_1_kg = Column(Float)    
+    bench_2_kg = Column(Float)    
+    bench_3_kg = Column(Float)    
+    bench_4_kg = Column(Float)    
+    best_3_bench_kg = Column(Float)    
+    deadlift_1_kg = Column(Float)    
+    deadlift_2_kg = Column(Float)    
+    deadlift_3_kg = Column(Float)    
+    deadlift_4_kg = Column(Float)    
+    best_3_deadlift_kg = Column(Float)
 
 class Location(Base):
     __tablename__ = "location"
