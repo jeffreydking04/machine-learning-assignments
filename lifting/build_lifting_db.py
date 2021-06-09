@@ -3,7 +3,7 @@ import csv
 from importlib import resources
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from models import Base, Athlete_Info, Athlete, Federation, Lift, Location, Meet
+from models import Base, Athlete, Federation, Lift, Location, Meet
 
 
 def get_lifting_data(filepath):
@@ -16,8 +16,9 @@ def get_lifting_data(filepath):
 def populate_database(session, lifting_data):
 
     for i, row in enumerate(lifting_data):
-        if i % 1000 == 0:
+        if i % 10000 == 0:
             print(i)
+
         athlete = (
             session.query(Athlete)
             .filter(Athlete.name == row['Name'])
@@ -41,8 +42,46 @@ def populate_database(session, lifting_data):
                 name=row["Federation"]
             )
             session.add(federation)
+        
+        location = (
+            session.query(Location)
+            .filter(
+                Location.country == row['MeetCountry'] and
+                Location.state == row['MeetState'] and
+                Location.town == row['MeetTown']
+            )
+            .one_or_none()
+        )
+
+        if location is None:
+            location = Location(
+                country=row["MeetCountry"],
+                state=row["MeetState"],
+                town=row["MeetTown"],
+            )
+            session.add(location)
+
+        key = row['MeetName'] + '-' + row['Date']
+
+        meet = (
+            session.query(Meet)
+            .filter(Meet.key == key)
+            .one_or_none()
+        )
+
+        if meet is None:
+            meet = Meet(
+                key = key,
+                date = row["Date"],
+                name = row["MeetName"],
+            )
+            session.add(meet)
+
+
 
         lift = Lift(
+            athlete_age = row["Age"] if row["Age"] else None,
+            athlete_weight = row["BodyweightKg"] if row["BodyweightKg"] else None,
             squat_1_kg = row["Squat1Kg"] if row["Squat1Kg"] else None,
             squat_2_kg = row["Squat2Kg"] if row["Squat2Kg"] else None,
             squat_3_kg = row["Squat3Kg"] if row["Squat3Kg"] else None,
@@ -62,9 +101,12 @@ def populate_database(session, lifting_data):
         session.add(lift)
 
         athlete.lifts.append(lift)
-        # author.publishers.append(publisher)
-        # publisher.authors.append(author)
-        # publisher.books.append(book)
+        federation.lifts.append(lift)
+        location.lifts.append(lift)
+        meet.lifts.append(lift)
+        location.meets.append(meet)
+        federation.meets.append(meet)
+
         session.commit()
 
     session.close()
@@ -80,7 +122,6 @@ def main():
     if os.path.exists('lifting.db'):
         os.remove('lifting.db')
 
-    # create the database
     engine = create_engine(f"sqlite:///lifting.db")
     Base.metadata.create_all(engine)
     Session = sessionmaker()
