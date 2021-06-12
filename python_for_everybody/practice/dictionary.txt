@@ -1,0 +1,23 @@
+What is the equivalent of a dictionary in js:
+Object
+Does a dictionary have a length:
+Yes
+Create a dictionary:
+dict = dict()
+Check to see if a key is in a dictionary:
+if key in dict or if key not in dict
+Do a one liner that allows you to count instances with a dictionary:
+counts[key] = counts.get(key, 0) + 1
+Loop through a dictionary:
+for key in dict:
+list(dict) does what:
+Creates a list of the dictionary's keys
+What is another way to get a list of a dictionary's keys:
+dict.keys()
+How about a list of the values:
+dict.values()
+What does dict.items() return:
+A list of tuples representing key and value for each dict items
+Loop through a dictionary with both keys and values (this one is neat):
+for key, value in dict.items(): (Remember that what you are really looping over is a list of tuples, but the variables correspond to the ordered pair of each)
+

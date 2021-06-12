@@ -1,0 +1,8 @@
+What is JSON:
+JavaScript Object Notation
+Import JSON:
+import json 
+How do I store my json string?
+data = json.loads(data_str)
+What does that return:
+A dictionary or a list, so super sweet, a lot like JSON.parse returns an object or an array

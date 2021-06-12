@@ -1,0 +1,14 @@
+To create a socket, what import is needed:
+import socket
+Create a socket:
+mysock = socket.socket(socket.AS_INET, socket.SOCK_STREAM)
+Create a get command:
+cmd = 'GET http://pr4e.org/romeo.txt HTTP/1.0\r\n\r\n'.encode()
+Send it:
+mysock.send(cmd)
+Receive it:
+data = mysock.recv(512)
+Display it:
+print(data.decode(), end = '')
+Close it:
+mysock.close()

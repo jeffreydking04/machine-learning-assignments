@@ -1,0 +1,22 @@
+What is soa:
+Service Oriented Approach
+What and why:
+Most complex sites use services
+So how do sites talk to other sites:
+APIs
+Where is the data in these situation:
+Spread out across many different systems connected by internet or internal network
+API:
+Application Program Interface
+What is it:
+A contract between the API server and the client for how to access and use the services
+What does it usually entail:
+build a url according to api rules which when hit will return what we asked for; just hope it was what we wanted
+Are apis easy to use:
+General no 
+Why:
+The rules differ and often getting access is a pain for a lot of apis
+What library helps with Twitter:
+twurl
+Note, you've done quite a bit of api work; if you find yourself needing to do it again, watch this again:
+Noted

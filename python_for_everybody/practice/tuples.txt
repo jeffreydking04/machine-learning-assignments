@@ -1,0 +1,46 @@
+Show me a tuple:
+x = (a,b,c)
+Give me the second value in the above tuple:
+x[1]
+Why isn't a tuple a list:
+It cannot be changed (immutable)
+What can't you do with tuples:
+Change them;  you can't append, sort, reverse, pop, insert (basically anthing you can do with lists); tuples are read only 
+What methods do tuples share with list:
+count, index
+Why use tuples:
+They are more performant than lists, they use less memory
+Why:
+Because they don't have the overhead associated with mutability (getting under the hood a little)
+Assign muliple variables using tuples:
+(x, y) = (1, 2) (print(x) => 1)
+Do it differently:
+x, y = (1, 2)
+Can we compare tuples:
+Yes
+How:
+(0, 5, 9) < (1, 2, 3)
+How does it work:
+The comparison is by index: if the boolean can be determined by applying the operator to two values of the same index, the answer is found, otherwise go to next index
+When you pass in k, v to a loop through a list of tuples, what do you get:
+(k, v) is actually a tuple, but as a tuple it doesn't have a reference, so you have to access them seperately, which is actually nice in this instance
+One-liner to sort a dictionary by keys:
+list_of_tuples = sorted(dict.items())
+How do you reverse a list sort:
+sorted(lst, reverse = True)
+Why is lst.sort().reverse() an error:
+sort() does not return a list; it changes the list in place and has a void(None) return
+Explain the process for sorting a dictionary by value:
+lst = []; for k, v in dict.items():; lst.append((v,k)); lst.sort(); lst.reverse()
+Another way to reverse that:
+lst = sorted(lst, reverse = True)
+Even shorter version:
+dict_sorted_by_value_descending = sorted([ (v, k) for k, v in dict.items()], reverse = True)
+What type does sorted() take:
+list
+Break down [ (v, k) for k, v in dict.items() ]:
+dict.items returens a list of tuples in the form k, v; (v, k) says return to the list surrounding this expression the tuple (v, k) as we iterate through dict.items()
+What is the hard part there:
+(v, k) is the return value
+Say more:
+We imbed an iterable with a return inside a list: [ return some_transformation_of_variables for variables in iterable ]

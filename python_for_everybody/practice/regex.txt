@@ -1,0 +1,86 @@
+What is regex:
+a concise and flexible means for matching strings of text
+How does it work:
+it is written in a formal language that is interpreted by a regex processor
+What decade did regex come from:
+60s
+Match the beginning of a line:
+^
+Matche the end of a line:
+$
+Match any character:
+.
+Match whitespace:
+\s
+Match any non-whitespace:
+\S
+Repeat a character zero or more times:
+*
+Repeat a character zero or more times (non-greedy):
+*?
+Repeat a character one or more times:
++
+Repeat a character on or more times (non-greedy):
++?
+Match a character from a given set:
+[aeiou]
+Match a character not in a given set:
+[^XYZ]
+Match characters in a range:
+[a-z0-9]
+Indicate where string exctraction should start:
+(
+Indicate where string extraction should end:
+)
+How do you import regex:
+import re
+What command finds a match:
+re.search(regex, line)
+What re method finds and returns the value found:
+re.findall(regex, line)
+Find all lines that begin with A and have a hyphen:
+if re.search('^A.*-', line):
+Find all lines that are a question:
+if re.search('?$', line)
+Find all lines that begin with Z and have at least one non-whitespace character but no whitespace characters before a semi-colon:
+if re.search('^Z\S+;', line)
+Create a list of all number characters in a line:
+re.findall('[0-9]' line)
+That finds all number characters but not all numbers; why:
+It is looking character by character and returning it; if a number is more than one digit, both digits are logged, but separately
+Find all numbers:
+re.findall('[0-9]+', line)
+Why does that work:
+The interpreter looks for a number character; when it finds one, the + tells it to keep matching until it finds a non numeric character
+Find all floats with decimal part:
+re.findall('[0-9]+\.[0-9]+)
+What does re.findall return if nothing matches:
+Empty List []
+What is greedy matching:
+If a string matches the conditions and a subtring of the string also matches the conditions, only the super string is returned with greedy matching
+Give me an example:
+re.search('B.*h', "Beaches are hot!'), both 'Beach' and 'Beaches are h' match, but only 'Beaches are h' is returned
+What does not greedy mean:
+It means we return the shorter of the too strings
+Given '^.*:'; change it so if multiple colons exist in a string, only the shortest is returned:
+'^.*?:'
+What is default, greedy or non greedy:
+Greedy
+What are better terms for greedy vs non-greedy:
+Longest and shortest
+Given line = 'Russ won 15 games this year but he lost 2', how do we return the number of games won (assume you have a long list in the same form: qb x won y games but he lost z):
+re.findall('won ([0-9]+)', line)
+Given line = 'Reach me at jeff@tableneeds.com', write regex to isolate 'tableneeds.com' (in other words, in any given email address, return the part after the @):
+re.findall('@(\S+)', line)
+What is another way to write \S:
+[^ ]
+Given the format line = 'QB some_other_random_information :information_we_want.', you know what to do:
+re.findall('^QB.+:(.+)\.', line)
+Better way to look for floats:
+[0-9.]+
+Why does this work:
+[0-9.] is really defining the set of all number digits or periods, thus [0-9.]+ says look for all substrings that are a continuous string of digits and periods
+Where would this go wrong if you were looking for floats and your string might have urls in it:
+Some urls might have the form nn.nn.nnnn.nn or the like where n is a digit; this is clearly not a float but still matches
+Remind me of the more specific search:
+'[0-9]+\.[0-9]+'

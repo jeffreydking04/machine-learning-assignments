@@ -1,0 +1,47 @@
+What is the wire:
+It is the link between applications that may not have the same syntax
+What is the wire format:
+It is the way the data is sent
+What are the two most common formats:
+XML and JSON
+What does XML stand for:
+extensible markup language
+Purpose:
+Help information systems share structured data
+More background:
+Originally a simplified subset of Standard Generalized Markup Language; meant to be mostly human legible
+What is serialization/deserialization:
+Convert data in local format for sending across the wire (serialization), or taking serialized data and reformatting for your local use
+What is a tag:
+come on now fedev, brackets that enclose(delineate) data and provide a space for metadata in the form of attributes
+Attributes:
+key/value metadata in opening tags
+Are there standards for the tag names:
+No, have at it
+Format of attributes:
+key="value"
+XML is a tree with exactly how many roots:
+One
+XML as a path, think about it:
+root/child1/grandchild5/greatgc4
+xml schema:
+legal format of xml document
+What is a validator:
+Takes an xml doc and a xml schema contract and validates it
+What is the schema of interest:
+XSD XML Schema (W3C spec)
+Nickname:
+W3C Schema because Schema is considered generic
+More common name:
+XSD because file names end in xsd
+Are schema generic?
+Nope, apparently they are highly specific to your document
+xsd data types:
+string, date, dateTime, decimal, integer
+What do they start with:
+type="xs:___"
+ISO 8601 Date/Time Format:
+2002-05-30T09:30:10Z
+What is Z:
+Timezone
+

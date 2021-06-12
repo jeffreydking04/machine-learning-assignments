@@ -1,0 +1,68 @@
+Database:
+contains many tables
+Relation:
+Table => contains many tuples
+Tuples:
+Rows => contain many Attributes (fields)
+SQL:
+Structured Query Language
+What does the language do:
+crud
+What is a database model:
+schema--the structure of the database
+Open the terminal shell with a db:
+sqlite3 db.db
+What if the db doesn't exist:
+It will be created in this directory as soon as you act upon it 
+Create a table:
+CREATE TABLE "Users" ("name" TEXT, "email" TEXT)
+Insert items into the table:
+INSERT INTO Users (name, email) VALUES('cassie', 'honey@pot.edu')
+How do we get headers in shell:
+.headers on 
+How do we get columns:
+.mode column
+How do we see our structure:
+.schema
+Delete a tuple:
+DELETE FROM Users WHERE email='ted@umich.edu'
+Careful with delete, why:
+It will delete anything that matches
+Edit a tuple:
+UPDATE Users SET name="Charles" WHERE email='csev@umich.edu'
+get all tuples from a table:
+SELECT * FROM Users
+get a tuple based on an attribute
+SELECT * FROM Users where name='Charles'
+What does the * mean:
+Get all Attributes of the tuples returned
+Get an order list:
+SELECT * FROM Users ORDER BY name
+Reverse it:
+SELECT * FROM Users ORDER BY name DESC
+Integer type:
+INTEGER
+String type:
+TEXT
+Make sure an attribute is unique across all tuple:
+UNIQUE
+Empty values not allowed:
+NOT NULL
+Assign the key attribute:
+PRIMARY KEY
+Shouldn't need to do this I don't think, but make sure the ID column increments with each new record:
+AUTOINCREMENT
+What is a join:
+Been waiting a week for this one: A join simply tells the data base to return data from two or more different tables
+This has been a big wtf issue for me because what a join does in a vacuum seems useless; what makes it make more sense:
+The ON clause
+Come again:
+SELECT Team.name, Player.name FROM Team JOIN Player;  (this is pretty useless if you were looking a db of the NFL for example; it would return a huge list of tuples with every team matched with every player)
+Fix it with your special ON clause:
+SELECT Team.name, Player.name FROM Team JOIN Player ON Team.id = Player.team_id;  (now we get a list of all players and the team they play for)
+Create a pure join table:
+It looks the same as a normal table, but where a normal table will usually have an id integer primary key format, we instead designate the primary key as a tuple of the foreign keys)
+Show me:
+CREATE TABLE User_Course (user_id INTEGER, course_ID INTEGER, PRIMARY KEY (user_id, course_id))
+So show me a list of all classes and users associated:
+SELECT Course.title, User.name FROM User_Course JOIN Course JOIN User on User.id = User_Course.user_id and Course.id = User_Course.course_id ORDER BY Course.title, User.name

@@ -1,0 +1,18 @@
+Why scrape:
+Get data, Get data out of your own system that has no export capability, monitor a site, search engine
+Be careful:
+Some sites don't like it; don't republish copyrighted material, do not violate terms of service
+What wonderful library do we love for scraping html:
+BeautifulSoup
+Why use the soup:
+Because there are pitfalls associated with html scraping that are a pain to learn and deal with; soup handles that for use
+Import the soup:
+from bs4 import BeautifulSoup
+How does it work:
+Use urllib to get an html file => soup = BeautifulSoup(html_return, 'html.parser')
+Get the anchor tags:
+tags = soup('a')
+Print the hrefs in the tags:
+for tag in tags:  print(tag.get('href', None))
+Can you pass soup encoded data (in other words, do you need to decode() your return):
+You do not need to decode, soup knows how

@@ -1,0 +1,18 @@
+Why is python great:
+It's libraries don't suck!
+What does urllib do:
+It does our network housekeeping for us.
+Import what we need:
+import urllib.request, urllib.parse, urllib.error
+Instead of creating a socket, what do we do:
+Create a handler
+Do it:
+fhand = urllib.request.urlopen(regular old url)
+Then we can print it by:
+Just like looping through a file handler: for line in fhand: print(line.decode().strip())
+What don't we get with this simple little command:
+No header/metadeta
+Are they gone for good:
+No, you can look up how if you want, but there is a way to display headers
+A note: he didn't show us the parse and error methods
+Noted

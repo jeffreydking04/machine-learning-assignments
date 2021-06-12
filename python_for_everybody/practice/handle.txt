@@ -1,0 +1,16 @@
+Create a handle:
+handle = open('some_file.txt')
+Iterate through a handle:
+for line in handle:
+Get rid of new lines:
+line.rstrip()
+Get file as a string:
+file_as_string = handle.read()
+Check if a substring begins a string:
+str.startswith('substr')
+Check if a substring ends a string:
+str.endswith('substr')
+Check if a string includes a substr:
+if substr in str
+End a program silently:
+quit()

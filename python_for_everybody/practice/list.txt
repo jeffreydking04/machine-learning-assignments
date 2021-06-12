@@ -1,0 +1,80 @@
+Pros of a collection:
+More than one value in one place, with addresses to get the value; think of a collection as being a variable that holds variables, but gives us awesome ways to manipulate the information, like sorting
+What collections are there:
+Lists, Dictionaries, Tuples
+What type of thing is a List:
+Collection
+What is a List constant:
+this_list = [some set of elements]
+Is a List concerned with the type in its elements:
+No, you can mix elements, including putting other collections as elements
+Are lists mutable:
+Yes
+Are string mutable:
+No
+How can you easily construct a list of numbers:
+list(range(int))
+How can you tell the type of an element:
+type(el)
+How can you easily concatenate Lists:
+list_3 = list_1 + list_2
+How do you slice Lists:
+lst[1:3]
+How can you omit the starting index if it is start of list:
+lst[:3]
+How can you omit the ending index if it is the end of list:
+list[1:]
+How do you list methods of a type:
+Instantiate the type: x = list() => dir(x)
+What is the push method in python:
+append
+How can you get a total of the number of specific elements in a list:
+list.count(desired_el)
+While + concatenates lists and returns a new list, how can you add a list to the end of another:
+lst.extend(lst2)
+Find index of first instance of an element in a list:
+lst.index(el)
+Insert an el at an index in a list:
+lst.insert(index, el)
+Create a list out of a range:
+lst = list(range(n))
+What is a neat way to insert the elements of a lst into a lst:
+lst[3:3] = [15, 16]
+What is the pop method in python:
+pop()
+What does pop() return:
+The element popped.
+Get rid of an element in a list:
+lst.remove(el)
+Will remove() remove all instances of an el:
+No, just the first
+Turn a list upside down:
+lst.reverse()
+Does reverse() return the reversed list:
+No, it is void and returns None
+What does it do:
+It reverses the list in place, meaning it mutates the actual list
+When can you not sort a list using sort():
+When the element types are mismatched
+Get an empty list:
+lst = []
+Do it again:
+lst = list()
+How can you check if a list contains an element:
+if el in lst
+How can you check if a list does not contain an element:
+if el not in lst
+Are lists ordered:
+Yes
+Can a list be sorted:
+Yes
+What are the methods on List:
+append, count, extend, index, insert, pop, remove, reverse, sort
+What kind of methods are they:
+Instance methods
+Does list have other built in functions:
+Yes, it has Class functions
+How are they called:
+func(list)
+Create a list from a string:
+lst = str.split()

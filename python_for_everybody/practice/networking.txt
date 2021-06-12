@@ -1,0 +1,62 @@
+What is a socket:
+An internet or network socket is an endpoint of a biderectional inter-process communication flow an Internet Protocol-based computer network, such as the Internet.
+Umm, really:
+It is one end of a link between two computers, wether or not the second end is defined; it is an endpoint
+What is a TCP Port Number:
+There are many applications that might run on a single server. the TCP port number is like an address for a server serving multiple applications to know which application to send packets to
+What:
+I run many applications that seek to create sockets with different servers.  Each of those apps is connected to my server.  I tell my server my app id so when it can both send info to the right address because it knows what socket I am connected to, as well as directing incoming packets to me (an application).
+Certain numbers have standard addresses, what is the address of an internet connection:
+80
+Can python access these sockets:
+yeah
+how do we start:
+import socket
+It gets weird here, define mysock:
+mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+What's going on:
+We're just establishing a socket based on known protocols
+What does AF_INET mean:
+We're establishing an internet socket
+What does SOCK_STREAM mean:
+We are receiving characters one after another
+How do we actually connect to another computer:
+mysock.connect('some_server', address_of_desired_application_on_that_server)
+So what does this mean:
+By importing the socket library, we can create a socket, then specify the address that we which to link with
+Does python rule:
+Yes
+What is the application protocol:
+It defines what output and input are expected; these are likely different
+What is http:
+Hypertext transfer protocol
+What does Hypertext mean:
+hypertext is text that has links to other sites (this needs more detail, but think of it as meta text, where the text references text beyond what is on the page)
+Break down http:
+the set of rules to allow browsers to retrieve web documents from servers over the internet
+Break it down again:
+it how we must structure our requests
+why?
+by adhering to the rules we can insure our message is interpretated correctly and the appropriate response is received
+hmmm, tell me more:
+when we send a message following the rules, the receiver knows how to interpret the message, the behavior is predictable
+what is a url:
+uniform resource locator
+what does that mean:
+uniform mean standard; every computer can parse it; resource is what we are looking for; locator finds it; so url follows standards to take us where we want to be
+Does url just find the server:
+No, it finds the specific resource we are looking for; it finds a location within an application
+When was the http protocol invented:
+89-90
+Basic http request:
+Send a get request to a specific resource at a specific application at a specific server, receives an html response with associated css and code for dyanamic user interaction with the dom
+What are internet standards:
+Standards established by the Internet Engineering Task Forc (IETF) called Request For Comments (RFCs) (wtf)
+Why Requests For Comments:
+It's an ironic reference to the fact that the process isn't done, a standard that is also an admission that improvement is possible; this is the best we can do now; please help us improve
+Why ironic:
+Because a standard that recognizes that it can be improved is ironically hilarious
+What:
+A standard looks to establish a truth, something permanent, so the idea that a standard has a extemporaneous nature is ironic
+
+

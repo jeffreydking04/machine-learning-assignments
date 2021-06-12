@@ -1,0 +1,20 @@
+Import xml library:
+import xml.etree.ElementTree as ET
+Pass in xml how:
+tree = ET.fromstring(data_string)
+Search how:
+tree.find('tag').text
+Get an attribute how:
+tree.find('tag').get('attr')
+Equivalent of backtick string:
+'''  '''
+If there was an xml syntax problem, what happens:
+Blows up at ET.fromstring
+Will find() find all instances:
+No, only the first
+What to do to find all:
+findall() returns a list
+What do find and findall find:
+The entire element, which why we have to specify the pieces we want with .get() or .text
+Can we specify a path:
+um, yes findall('root/parent/child')

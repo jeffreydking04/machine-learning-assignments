@@ -1,0 +1,44 @@
+How do you get the integer value of a character:
+ord(char)
+How is character stored in memory:
+As a number between 0 and 255 inclusive in 8 bits of memory
+What is 8 bits:
+A byte
+What is the data set of standard characters called:
+ASCII
+So we can see the limitations here:
+There are more than 256 possible characters
+What solves this:
+Unicode
+What's the problem with Unicode:
+It's too big.  Not performant.  It would make almost everything 4 times larger.
+So what do we do:
+We compress Unicode
+What is UTF-32:
+Full Unicode encoding
+How many bytes:
+4
+How many bytes is UTF-16:
+2
+How many bytes is UTF-8:
+It is dynamically encoded, 1 to 4 bytes, to be flexible
+What is the recommended practice for exchanged data:
+UTF-8
+All strings internally Python 3 are:
+Unicode
+What will type return on python strings:
+string
+However some strings might be encoded as type:
+bytes
+Data going out via a socket must be in what form:
+bytes
+Data coming in via a socket will be in what form:
+bytes
+But because Python uses Unicode, with outgoing data, it must be:
+encoded
+And for incoming data:
+decoded
+What does encode() do:
+Encodes Unicode into UTF-8 bytes
+And decode():
+Turns UTF-8 into Unicode

@@ -1,0 +1,40 @@
+What is an object:
+A data structure
+What is object oriented:
+program made up of many cooperating objects, each object is self contained--objects make use of each other's capabilities
+Self-contained:
+An object instance as its own set of data and methods used to modify that data based on experience with other objects
+OOP is modularized:
+Like components in web design, we break the problem into chunks
+Talk about boundaries:
+We make an object and give it capability,  we don't care what people do with it, also as users, we don't care how it does it's magic
+What is a Class:
+a template
+Method or message:
+a defined capability of a class, I don't like the message terminology, it is not intuitive, I think of methods triggering in response to messages; I am only an egg
+Field or attribute:
+Data point in the class
+Object or Instance:
+A particular instance of the class, created and used when the class is called and stored in a variable
+What is self:
+self is the way an instance refers to its own methods and attributes
+What do we do with every instance method:
+pass self as its first parameter
+What is the object life cycle:
+Objects are created, used, discarded
+There are special methods that happen at lifecycle moments:
+constructor (used often), destructor(almost never)
+How define a constructor:
+def __init__(self): do stuff (often taking parameters and storing them in the instance fields)
+How define a destructor:
+def __del__(self): do stuff (no idea what, but I am sure there are use cases)
+How to destroy an object:
+Take away its pointer(reassign the variable); I am guessing there are other ways
+Inheritance:
+It simply extends an old class while adding new capability
+How to define a class:
+class ClassName()  notice the naming convention
+How to extend a class:
+class NewClass(ClassName)
+What are the 5 standard data types:
+string, number, list, tuple, dictionary
