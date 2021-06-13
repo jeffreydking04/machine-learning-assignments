@@ -1,9 +1,8 @@
 class Category:
-    ledger = []
-    balance = 0
-    total_withdrawals = 0
-
     def __init__(self, name):
+        self.ledger = []
+        self.balance = 0
+        self.total_withdrawals = 0
         self.name = name
 
     def __str__(self):
