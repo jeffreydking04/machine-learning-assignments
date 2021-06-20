@@ -1,0 +1,50 @@
+How many steps in data cleaning:
+Typically 4
+What's the first step:
+handling missing data
+When you have a missing data point, what is the first question:
+Is it necessary
+If no:
+Put in a placeholder and move on
+If yes:
+Track it down
+Second step:
+Invalid values, such string in number columns
+But that isn't the hardest issue here:
+Yes, you can have a valid data point that doesn't make any sense (customer age = 200)
+What makes this worse:
+You might not know if the value is reasonable or not
+Why:
+You need to get the domain of your value to find bad values (I would call this the range)
+Null checkers:
+pd.isnull() === pd.isna()
+Not null checker:
+pd.notnull() === pd.notna()
+Note => ignore na:
+Noted, null just makes more intuitive sense
+Check a series for null values:
+pd.isnull(pd.Series(list))
+Can you just as easily pass in a data frame:
+Sure
+What is a np null value:
+np.nan
+Get the count of the number of null values in a Series:
+pd.isnull(s).sum()
+Count of populated values:
+pd.notnull(s).sum()
+Why does it work:
+Because True == 1
+So get all the indices of not null values in a Series:
+s[pd.notnull(s)]
+What the heck:
+It's nothing we haven't seen before: pd.notnull(s) returns a boolean list corresponding to the values in the series; indexing on a boolean list returns an array with only the indices that equal True: it' a filter
+There is an easier way:
+dfs and series both have isnull() and notnull() methods => s[s.notnull()] so we don't have to invoke pd.notnull()
+It gets even easier:
+s.dropna() which is a reason to deal with isna and notna instead of null
+Are these methods mutable:
+No the original is kept
+Can we run these methods on dfs:
+Yes we can
+What's a quick way to find null values with dfs:
+df.info() will tell you how many not null values are in each column, so null value total is simple arithmetic

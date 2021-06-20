@@ -1,0 +1,60 @@
+Import pandas:
+import pandas as pd
+What is pandas:
+It allows us to create data structures
+Is it important:
+crucial
+What are the two data structures we will use:
+series and dataframes
+What is a series:
+An ordered sequence (series) of values
+How are they ordered:
+Indexed
+How do you create a series:
+pd.Series(list)
+What do you get when you print a Series:
+The index and value on rows, followed by dtype
+What type of object does pd.Series take:
+A List like object
+Which means:
+We can also pass in a dtyped np array which lets us control memory usage:
+How:
+a = pd.Series(np.array([1,2,3,4], dtype='int8'))
+Do Series have different capablities and variables than lists:
+Duh
+Name one:
+name  => my_series.name = 'My dumb name'  (Note it is a variable, not a method)
+Name more:
+dtype (obv) and values, both variables
+What type of thing is values:
+It is an np.array!  So even if you pass in a list, it is converted to an array
+Talk about the Series index instance variable:
+Returns something in the form of RangeIndex(start=0, stop=7, step=1)
+How do you select an el:
+same as a list
+Holy moly, can you change the indices of a Series:
+Sure, just a.index = [4,7,20,9,5,'mal'] and it will remap the indexes (so it behaves like a dictionary)
+Is it still ordered:
+I am not sure but I am going out on a limb and saying yes,  all reindexing does is create a new field map
+Is it ordered:
+Yes sir!!!!
+Shortcut to creating an ordered dictionary:
+pd.Series({ 'a': 4, 'b': 5}, name='My dumb series')
+Another way to re-index immediately:
+b = pd.Series([1,2,3,4], name='Good name', index=['a', 'b', 'c', 'd'])
+Can you still select by original indexing:
+a.iloc[4]
+Does slicing work:
+Yes, but see below
+Some things I discovered about iloc:
+You can still directly reference the original indexing, but I suspect this is poor form because you could reindex by renaming an old index
+If you slice with original indexing:
+It follows the list slicing convention: series => a is like [1,2,3,4] => a[0:1] = [1]
+If you reindex and slice:
+series a is like [1,2,3,4] but is reindexed with a through d then a['a':'b'] => [1,2]
+Can we use vector operations and boolean operations on Series:
+Yes
+Are series mutable:
+yes series[1] = 45
+This one is interesting => series[series < 50] = 100:
+This looks like we are returning a new array (series?) and then assigning each value to 100 in the new object, but it actually changes those values in the original series in place

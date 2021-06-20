@@ -1,0 +1,34 @@
+What does duplicated do:
+df.duplicated creates a one to one boolean series that indicates whether the df passed in has any dulicated rows 
+So if you want to just check a given column:
+Only check that column
+How can we do this with a parameter (obviously we could just call duplicated on the column) off a duplicated call on the whole df:
+players.duplicated(subset=['Name'])
+Which duplicate will return true:
+The first found
+What if you want the last:
+df.duplicated(keep='last')
+What if you just want to be rid of all duplicates:
+keep=False
+What command returns a df without the desired duplicates:
+a = df.drop_duplicates()
+You can use the keep parameter in the same way as above:
+Yes
+What dtype is a string in pandas:
+object
+Columns of different dtypes have what:
+Different methods that can be called on them
+What is a method on a object column:
+str.split()
+Method prefixes for datetime, category columns:
+dt, cat
+So str, dt, cat are:
+Namespaces for the methods for that can be done on that dtypes
+So if you want to split a column of strings by on a value, what do you get back df.str_data.str.split('-'):
+A series of arrays
+What if you want the arrays split into a df:
+df.sd.str.split('-', expand=True)
+There is a str method called contains; what wonderful thing can you pass into it:
+regex, so remember that is how it is parsing the value passed
+So we can use replace too:
+Yes, and damn I need to learn more about regex

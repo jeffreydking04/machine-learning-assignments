@@ -60,6 +60,8 @@ Get an empty list:
 lst = []
 Do it again:
 lst = list()
+Remove an element by index:
+lst.pop(index)
 How can you check if a list contains an element:
 if el in lst
 How can you check if a list does not contain an element:
@@ -69,7 +71,7 @@ Yes
 Can a list be sorted:
 Yes
 What are the methods on List:
-append, count, extend, index, insert, pop, remove, reverse, sort
+append, insert, extend, pop, remove, clear, sort, reverse, count, index, copy
 What kind of methods are they:
 Instance methods
 Does list have other built in functions:
@@ -78,3 +80,17 @@ How are they called:
 func(list)
 Create a list from a string:
 lst = str.split()
+Just adding these here => explain a lambda:
+A lambda is an arrow function (x) => x ** 2 is the same as lambda x: x ** 2
+Why is it useful:
+Same reason arrow functions are useful, but even more necessary in python because it seems like defining a function then assigning that function to a key in a dictionary does not let you call it, but you can call a lambda -->  dct = { 'a': somefunc } then dct['a']() is an error, whereas dct = { 'a': lambda z: z } then dct['a'](3) == 3
+Also useful for closures:
+def f(n): return lambda x: x + n
+Also list comprehensions, we've talkd a little about them but I missed a crucial part:
+lst = [ (v, k) for k, v in dict.items() if v % 2 == 1 ]
+Explain:
+It's still just a loop wrapped in a list, with the list taking on the form specified for each iteration
+Use it to filter a list:
+lst = [ x for x in other_list if x > 5 ]
+So a list comprehension can:
+Filter, map, or both

@@ -1,0 +1,64 @@
+What is numpy:
+A multi-dimensional array library
+Why is numpy fast:
+numpy stores an integer in one 8 byte (unless you change the type) bit of reserved memory, whereas python stores and integer as an object, size, reference count, object type, and object value attributes, each of which take up their own slice of memory
+You've said this before:
+python stores numbers as objects
+What is the reference count:
+It is how many times the obect has been pointed at
+Bottom line:
+numpy uses fewer bytes
+What else:
+numpy types its arrays, so there is no type checking
+Why is contiguous storage faster:
+calculations can be done simultaneously and the caching is more efficient
+Lists can do things:
+But numpy can do a lot more, including making coding more efficient and pleasurable
+Applications of numpy:
+math, plotting, backend, ml
+Total number of bytes in an array:
+a.nbytes
+How to initialize zeros:
+np.zeros(shape)
+Ones:
+np.ones(shape)
+Twos:
+np.full(shape, 2)
+Copy another array's shape with a given value:
+np.full(a.shape,8)
+Do it another way:
+np.full_like(a, 4)
+Initialize an array with random numbers:
+np.random.rand(2,4)
+What's different:
+The shape didn't go in as a tuple
+What if I prefer passing in a shape as a tuple for consistency:
+np.random.random_sample(shape)
+What if I want integers:
+np.random.randint(8)
+What will that give you:
+A single random integer 0 to 7
+What if I didn't want to start at 0:
+np.random.randint(1,11)
+What if I want and array:
+np.random.randint(0,9,(4,4,4))
+Or you can specify your shape by:
+np.random.randint(10,size=(2,2))
+Identity matrix:
+np.indentity(size)
+Why not a shape:
+Because the identity matrix is always square
+Repeat an array:
+Define an array such as a=[1,2], then np.repeat(a,3) => [1,2,1,2,1,2]
+What if i want three rows of the same array:
+np.repeat(a,3,axis=0)
+Explicity do matrix multiplication:
+np.matmul(a,b)
+Now do it right:
+a @ b
+Build an array from text:
+np.genfromtxt('text.txt', delimeter=',')
+Cast your array into another type:
+a = a.astype(np.int8)
+What is the not operator:
+~

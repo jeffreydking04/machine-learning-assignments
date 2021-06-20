@@ -1,0 +1,61 @@
+What is a db:
+store, manipulate, retrieve data
+Where stored:
+computer server
+What is postgres:
+the db engine
+What is sql:
+Structured Query Language  --> the actual langauge we use to interact with the db engine
+What does it do:
+manage data held in a relational db
+Easy to learn:
+HA!
+But powerful:
+Double ha
+When created:
+1974
+How is data stored:
+columns and rows
+What defines the columns:
+The table, so we can kind of think of the headers, with types, as the table
+What defines the rows:
+The tuples (records) in the table
+Why is it called a relational db:
+Because we can create connections between tables, where tuples of one relationship are associated with tuples of another
+What is the most advanced open source relationsal database:
+Postgres
+Why postgres:
+object-relational databases management system, modern, open source
+What command opens your postgres: 
+"/Applications/Postgres.app/Contents/Versions/13/bin/psql" -p5431 -d "postgres"
+Once in the pgshell, how do you get help:
+help
+How do you see what dbs you have:
+\l
+How do you create a db:
+create database dbname_without_suffix;
+Why should you consider capitalizing:
+To emphasize the syntax that is sql
+Easy way to connect to db:
+Once you are in psql, \c db_name_no_suffix
+How can you change databases midstream:
+You can just use \c new_db; no need to quite
+What is a very dangerous command:
+drop database db_name;
+Why is it dangerous:
+It is irrevocable
+Make sure you have what:
+A  backup
+Create a table:
+create table table_name ( column_name data_type constraints if any)
+With actual sql (as opposed to sqlite), how do we define an integer:
+int
+Take control of the text length:
+varchar(n)
+Define a column with a date type:
+timestamp
+How many data types does pg have:
+A ton; it can be overwhelming, but it gives you precise control over your type
+
+
+

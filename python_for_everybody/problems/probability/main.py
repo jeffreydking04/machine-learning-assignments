@@ -5,7 +5,7 @@ class Hat:
     def __init__(self, **kwargs):
         self.contents = []
         for color, number in kwargs.items():
-            self.contents.extend([ color for i in range(number)])
+            self.contents.extend([ color for i in range(number) ])
         self.original_contents = self.contents[:]
 
     def draw(self, draws):

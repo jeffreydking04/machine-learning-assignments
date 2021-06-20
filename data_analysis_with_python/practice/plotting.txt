@@ -1,0 +1,36 @@
+What is the plotting library:
+import matplotlib.pyplot as plt
+There are two apis for matplotlib:
+Global and OOP
+What:
+Global is the matlab style; people are familiar with it
+Neat reason it is called global:
+So we import pyplot as plt and apperently it is the only instance of our plot; we just keep modifying plt by sending it messages (first time that has ever made sense to me)
+So weirdness ensues, what is the first thing we do:
+plt.figure(figsize=(12,6)) (not sure what this means)
+We can title it:
+plt.title('my dumb title')
+Let's say we want to display multiple plots:
+plt.subplot(1,2,1)  (this says we want a 1 by 2 grid and the first plot is the active one)
+How do we plot the actual function:
+plt.plot(x, func(x))  => plt.plot(x, x ** 2)  where the first parameter states the variable
+To put an axis on the plot, you can pass in coordinates in the form:
+plt.plot([x,x,x,...], [y,y,y,...])
+Can you basically plot any line there:
+Yeah, you're really just plotting a stepwise linear graph one line at a times
+Then give the lines legends:
+In the order that you declare the plots => plt.legend([array of legend titles])
+Name you axes:
+plt.xlabel('Name'), same for ylabel
+So, I'm with my guy, what's a better way:
+OOP ftw
+Instead of plt.subplot(1,2,1) to specify in the order of the code which plot we are working on, what do we do:
+fig, axes = plt.subplot(figsize=(12,6))
+That creates how many plots:
+One, but now we have stored it in a variable and can act upon it
+Do more than one:
+plot_objects = plt.subplots(nrows=2, ncols=2, figsize=(14,6))
+How do we handle that:
+fig, ((ax1, ax2), (ax3, ax4)) = plot_objects  (So as we see subplots has returned a tuple of the fig, and a tuple matrix representing the 4 plots, which we assign to variables, which can then be accessed directly)
+You are going to want to look up the specifics of this because he is moving over it too generally:
+Noted

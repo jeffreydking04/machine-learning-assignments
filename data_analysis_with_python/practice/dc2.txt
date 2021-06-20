@@ -1,0 +1,58 @@
+So if we have a df that includes some null values, we can return a data structure of booleans related to those null values with a simple pd command:
+df.isnull() or df.notnull()
+What might the null values format be:
+np.nan()
+What type of return is it:
+df
+What method will give us a quick preview of what we might expect to see with the above methods:
+df.info()
+Which will return:
+The number of not null values on the columns of df
+If there are non null values in a column, what happens to the ints of that column:
+They become floats
+Why:
+Wild guess is that that np.nan is recognized as a float and the whole column is then cast to float
+Neat way to isolate only those rows without null values:
+df.dropna()  Remember this leaves the df untouched and returns 'solid' rows
+Keep 'solid' columns:
+df.dropna(axis=1)
+How can you fine tune this behavior (so that you are only dropping rows that are 100% null):
+df.dropna(how='all')
+What is the default 'how' parameter:
+'any'
+So how can we easily replace null values with defaults:
+df.fillna(default)
+Suppose you have a column of numbers in a close range and want to fill in the null values with values close to it:
+df.fillna(method='ffill') and df.fillna(method='bfill')  forward and backward, will just fill go through the series backwards or forwards and use the last encountered not null to fill
+What is the danger here:
+Null values at beginning or end of the series
+Recast a column of floats into ints after all na have been converted to a presumablt zero default:
+df.column = d.column.astype(np.int64)
+Talk about dot notation:
+If your columns and rows are named nicely, you can use dot notation to reference df.a.b
+How can with use fillna on dfs:
+df.fillna({'col1': fillval, 'col2': fillval})
+How can you just do a ffill on every column:
+df.fillna(method='ffill', axis=0)
+Rows:
+axis=1
+How do you get counts of every value in a series:
+s.value_counts()
+Whatch out:
+Null or zero values might be ignored
+How can you easily replace specific values with other values in a series or df:
+df.replace({ 0: 57, 1: 101 })
+What if you only want to do one:
+df.replace(0, 57)
+One way to replace values in a column that fall outside a range to a value dependent on the intitial value:
+h.iloc[:, 3][h.iloc[:, 3] > 100] = h.iloc[:, 3] / 10
+How does it work:
+Bizarrely => the first expression returns the column as a series, then indexes it with a boolean array crafted off the critical value.  The second side of the equation takes that column and divides it by 10.  Because of the way boolean index assignment works, the assignment is one to one but only if True
+Passing a scalar into the right side instead of an array:
+Will asign all true indices of the array to the scalars
+What's another way:
+h.loc[h.d > 100, 'd'] = h.loc[h.d > 100, 'd'] / 10
+What's it doing?
+Go get every row where the conditional is true(left side), which returns a series of that requested column of a given length, then assign it to the same series transformed by a vector operation
+Now that you look at it, which is more intuitive:
+The second

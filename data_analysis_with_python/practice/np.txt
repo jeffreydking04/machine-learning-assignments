@@ -1,0 +1,92 @@
+Give the CamelCase version of numpy:
+NumPy
+Import it:
+import numpy as np
+What does numpy do:
+numeric computing library; processes numbers and things with numbers and that's it
+Why numpy:
+python number processing is very slow; numpy solves this
+Usually we don't import numpy, why:
+Because we will use libraries that use numpy
+How are numbers stored:
+Active numbers must be stored in RAM as a series of bits
+Based on your data set, how do we optimize the memory requested:
+By looking the number of bits your largest number requires, then only requesting that many for that attribute for each record
+Numpy vs. python, why does python use far more memory than this for a given number:
+Because everything in python is an object, a number object has a ton of overhead because all of the associated attributes and capablitlities are stored with it
+How can you precise in numpy:
+np.int8 for example => I want an integer and I want to use only 8 bits for it
+What is the largest value:
+2 ** 8 - 1 = 255 but I bet we have to reserve a bit for negativity so -127 to 127 (all speculation; also I believe negative zero 10000000 can be interpreted as -128)
+What is numpy 99% about:
+Array processing
+Again the python list is not performant:
+The elements might be stored in random spots in memory
+What does an np.array do:
+It ensures the elements are stored contiguously for faster retrieval
+How  many bits does python reserve for integers:
+20 bits
+Create an array constant with np:
+np.array([1,2,3])
+Accessing. slicing elements:
+Same as python
+What is multi-indexing:
+Multi indexing allows you to pull values from explicit indices in an array
+How:
+a[[0, 5, -1]] will return an array of the values of a at the first, sixth, and last positions
+What's that return again:
+An np array
+If we request an array of one digit numbers, what type of array will we get:
+int64
+How can we tell:
+a = np.array([1,2]); a.dtype => dtype('int64') (dtype is data type)
+Why so many bits:
+numpy is a 64 bit platform; that is the default
+What if we had floats in there:
+dtype('float64')  again 64 is the default 
+Can you specify a dtype when you create an array:
+a = np.array([1,2], dtype=np.float)
+What if we knew we were only going to deal with small integers:
+a = np.array([1,2], dtype=np.int8)
+Why again would we do this:
+To control the amount of memory reserved
+What types are consistent with numpy's raison:
+numbers, dates, booleans
+Strings:
+You can but it doesn't get you anything; just use a list
+What is the dtype of a string array:
+<U1
+Matrices:
+mat = np.array([[1,2], [3,4]])
+Get r by c
+mat.shape
+Notice that shape is an attribute of the matrix, not a method
+Noted
+The dimensionality:
+mat.ndim  The only way I know how to think of this is the number of nested arrays (the number of references to get an element)
+How many total els are in the array:
+mat.size
+Create a 3d array:
+mat = np.array([ [ [1,2], [2,3] ], [ [5,6], [7,8] ] ]) (I'll be honest, my brain goes a little wonky at this point)
+What happens if declare it incorreclty:
+np just views it as an object and you get wonky results with shape and the like
+Get the 0,1,3 element of a 3d array:
+a[0][1][3]
+That's kind of a pain in the ass, isn't it:
+a[0, 1, 3] will work (multi indexing ftw)
+Can you grab slices with multi-indexing:
+a[:3, 2:, 4:5]  That would likely not have a use case but [[:, :1]] creates a column vector of the first column of matrix, amiright?
+Let's look at that again, how can I grab the third column vector of any matrix:
+A[[:, 2]]
+Break that down:
+Remember that a matrix is defined as an array of arrays of its rows.  So with the first index there, we are requesting all the rows, which are arrows, but with the second index, we are requesting only the third element of those rows, which results in the ray equivalent of a column vector.
+If you want to assign the same value to all the elements of a row of a matrix:
+A[1] = 99  A[1] gets the second row of your matrix and it assumes you want make each element 99, instead of doing what you told it to do: destroy your matrix, but replacing a row with a scalar
+What are the basic summary stats:
+sum, mean, std, var
+Are they instance variables:
+No, they are instance methods => A.sum() instead of A.sum
+Get me the sum of each of the rows of A:
+A.sum(axis=1)
+How about the columns:
+A.sum(axis=0)  Apparently columns are the first dimension

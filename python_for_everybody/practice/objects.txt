@@ -38,3 +38,7 @@ How to extend a class:
 class NewClass(ClassName)
 What are the 5 standard data types:
 string, number, list, tuple, dictionary
+This one is very important (caused me no end of trouble with testing), where do you define instance variables:
+Inside the constructor: def __init__(self, ...)
+If, for example, each instance of a class will have a list of numbers, why not define an empty list in the global scope of the class:
+Because a variable declaration in the global scope becomes a CLASS variable, meaning that when it is assigned a value, it is assigned for all instances

@@ -1,0 +1,32 @@
+What is data analysis:
+A process of inspecting, cleansing, transforming, and modeling data with the goal of discovering useful information, informing conclusion and supporting decision-making.
+What python library do we use for inspecting, cleansing, and transforming:
+pandas
+What are we trying to do:
+Turn data into information (data is just data; information is decipherianing a true message the data conveys implicitly)
+Are these words sacred:
+No, we are just defining terms
+In the end, what does a data scientist provide:
+Useful reports, visualizations, and analysis tailored for the recepient (different departments might need different interpretations of the same information)
+Advantags of auto-managed closed tools:
+easy to learn
+Disadvantages:
+closed source, expensive, limited
+Advantages of programming languages:
+open source, free or cheap, powerful
+Disadvantages:
+git gud
+Why python:
+simplicity, intuitive, readable, the libraries rock, free, open source, great community
+Why r?
+r studio might be needed?, better at dealing with advanced statistical methods, more performant
+What is the process:
+get data, clean data, transform, modeling, go into, god forbid: machine learning, reporting, visualization etc.
+Data analysis v. data science:
+not clear, but data science is more rigorous, but data analysis is about communicating the results (no reason not to be able to do both)
+Data analysis is:
+Point and click
+Data science is:
+Abstraction
+Data analysis is consistenly looking at:
+Some visualization of the data

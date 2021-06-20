@@ -1,0 +1,14 @@
+Create a file pointer:
+with open('filename', 'r') as fp:
+What is the 'r':
+I am assuming readonly
+What is fp:
+File pointer
+How do we use it:
+    for index, line in enumerate(fp.readlines()):  => print(index, line)
+How can you get all the info you would ever need on a method:
+pd.read_csv?
+Can you read a remote csv:
+pd.read_csv(url).head()
+That method on the end should give you an idea about what kind of object you get back:
+A df, baby

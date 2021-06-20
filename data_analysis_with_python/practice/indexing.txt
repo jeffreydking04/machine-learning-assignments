@@ -1,0 +1,36 @@
+Much needed clarification on indexing:
+Yes sir!
+Create a 1d array, first 10 even numbers, descending:
+array = np.arange(20, 1, -2)
+Access the second and third to last els:
+array[1,-3]
+What is this:
+When indexing a 1d array, we can select mulitple indices by passing an array-like object specifying the indices desired
+Give the array a 2d shape, 2 rows:
+array.shape = (2,5)
+Let's talk about this a hot minute:
+First of all, the shape of an array seems to be an attribute.  This leads me to believe that even multidemsional arrays are simply stored as a sequence of numbers and are interpreted based on its attributes.
+What happens if we try array.shape = (2, 4)
+We get an error because array.size must equal 10 because we have ten elements.
+So how does our array look now:
+[[20,18,16,14,12], [10,8,6,4,2]]
+Traditional way to select element 8:
+array[1][1]
+This is where we get multi-dimensional indexing:
+array[1,1]:
+So what is multi-demsional indexing:
+We can index arrays with as many selections as we have dimensions
+What if we use fewer:
+We get a response that is an array itself.
+What is the dimensionality of any given array indexing:
+original_array.ndim - number of indexes requested (unless we request multiple elements via a slice)
+Construct a cube with sides length 4:
+array = np.arange(64).reshape(4,4,4)
+What is the ndim of the return of any given indexing of a 3d array:
+Each selection reduces the ndim by 1 unless the selection returns multiple values
+Why:
+A point has no dimensionality.  Thus a single element has ndim 0. It requires two elements to define a dimension. When we select a single element from an axis, that axis is eliminated and its ndim is 0, but as long as we select >1 from any axis, we retain the axis's dimensionality.
+Select via step:
+x = np.arange(10)
+What I used to think of as multi-indexing (either because I got bad info or because I processed good info poorly), is really what:
+array[[1,2,3]] == array[np.arange(3) + 1] is called  INDEX ARRAYS

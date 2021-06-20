@@ -1,0 +1,36 @@
+What are vecotrized operations:
+Man, I wish I was more up to date on my linalg, but I believe these are just the same +, - vectors and +,* scalars by vectors
+Given the row vector v = np.array([[1,2,3,4]]) add 10 to each value:
+v + 10
+Create the above array without being explicit:
+v = np.arange(4) + 10
+Are arrays mutable:
+No sir
+So what happens when we perform operations on them:
+Nothing happens in place, but a return array is created
+But we can override the immutability:
+A += 1 actually mutates A (however my guess is that the assignment is just done under the hood)
+What is that called:
+Broadcasting
+For A * 10, what is the equivalent list operation:
+new_list = [ x * 10 for x in A ]
+How else can we select elements from an array (hint; binary):
+b = a[[True, False, False, True]] will return an array of the first and last elements of a 1 x 4 array
+Caveat:
+You will get error if the arrays are not the same shape
+How can we create a Boolean array from another array:
+We can use a comparision operator on the whole array:    np.arange(4) > 1 returns an array [False, False, True, True]
+Break it down:
+A comparison operator value  acts exactly like A * 1: it compares each el of A to the value and returns a list of the booleans
+Note that you would never write a[[False, True,...]] except as an exercise, but you will use a[a < 15] for the rest of your life
+Noted
+What is this really doing:
+Filtering
+Or, And in numpy:
+|, &
+A neat way to get all the values over the mean of an array:
+a[a > a.mean()]
+What is the numpy way of getting the memory allocation of a dtype:
+np.dtype(dtype).itemsize
+Note that it is a variable not a method
+Noted

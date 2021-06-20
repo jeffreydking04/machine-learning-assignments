@@ -1,0 +1,90 @@
+What is a good comparison to a dataframe:
+excel
+Easy way to create one:
+Import a csv
+How do you create a df from scratch:
+df = pd.DataFrame({ 'col1name': [col1values], 'col2name': [col2values]})
+Break it down just a little:
+we just pass a dict with column names as keys and column values in lists
+How is it related to series:
+A column is a series
+That would be indexed numerically, change it:
+df.index = list of row names
+Row and column variables:
+df.columns: returns list of column names, df.index: returns list of indices (row names so we start to see what is going on here)
+Let's talk about info:
+Instance method (df.info()) Returns table of indexed columns starting at 0 with names, non-null count, and dtype of the column data
+Non-null:
+Yeah, not every tuple will have values for every attribute, non-null count counts the number of non-null entries in a column
+What else does info() supply:
+dtypes: int64(2), int8(1) & memory usage: x bytes
+What is the size of the df:
+df.size returns the area of the table (4 rows * 3 columns == 12)
+So size is directly analagous to array.size:
+Yes
+Describe the describe function:
+df.describe() counts, means, stds, min, quartiles
+We can explicitly get only dtypes:
+df.dtypes will display each column by name with its dtype
+We can explicitly get the dtypes with their counts:
+df.dtypes.value_counts() (an instance method on an instance variable: neat) which gives, e.g. int64 2; int8 3;...
+Talk about loc and iloc:
+df.loc['a'] vs df.iloc[0]
+That was clearly not sufficient:
+loc and iloc will return row information
+How to get columns:
+df['index']
+What is returned with all of the above:
+Series
+For row returns, what are the indices:
+Column names
+If you want to get a column by index:
+df.iloc[:, 2]
+So it is really important to recognize this when we start filtering dfs; talk about row filtering:
+filtered_df = df.loc[(df['Population'] > 50) & (df['Average Income'] > 40 ]
+What is returned:
+A df
+Instead of selecting which rows or columns to show, you can select which to be rid of:
+df.drop('Canada') of df.drop(columns=['Pop', 'GDP'])
+So say you have a df with columns a,b => add 5 to each a and 10 to each b using a series:
+addition = pd.Series([5,10], index=['a', 'b']); new_df = df + addition
+When we slice and dice or drop, are we mutating the df:
+No => df.drop('Canada') returns a new df, leaving the original unchanged
+Suppose you had a df with one text column and 15 number columns and you wanted to make a uniform addition change (e.g. add 2) to 5 of the columns, how could you do it with one series operation:
+double_some_columns = pd.Series(['', 2,2,2,2,2,0,0,0,0,0,0,0,0,0,0], index=['text', 'c1', 'c2',...,'c15']); new_df = double_some_columns + df
+Why does that work:
+Because addition also works on text.  If you wanted to muliply, you could just change the first value from '' to 1 and all the zeros to ones because text * 1 = text
+What does this weird example demonstrate:
+The power of the identity matrix
+Huh:
+It actually shows how powerful the identity element on an operation (1 with multiplication, 0 with addition is):  It allows us to transform a matrix by specifying the operation to do on a given column of the matrix while leaving the rest untouched, without excising each, performing the same op on all then putting them back in
+So here is a neat one: df with rows 'a', 'b', c'.  Add a new column using operators:
+s = pd.Series([4,6], index['b', 'c'], name='new_column); df['new column'] = s; of course I could have just said df['new column'] = [None, 4, 6] but if I had a subset of rows I wanted to add values for and a trillion rows, it is is much easier to do it this way
+If declare something like df['Age'] = 25, what happens:
+Every row will have age 25
+So most df ops are immutable, but which one specifically mutates:
+Assignment =
+Rename column 'a' to 'abc' and rows 'd' to 'def' and 'g' to 'ghi':
+df.rename(columns={'a': 'abc'}, index={'d': 'def', 'g': 'ghi'})
+Can you rename rows or columns that don't exist:
+Anything that doesn't exist will be ignored
+Did I change the original with rename:
+No, it would have to be df = df.rename(.....)
+Create a new column as a transformation of two other columns:
+df['d'] = df['a'] + 2 * df['b']
+What does pd.read_csv(filename) assume about first row:
+It is headers
+Heads or tails:
+df.head(4) will give first 4 rows, df.tail(3) will give last three rows
+Default on head() and tail():
+5
+I have a column of dates as strings; fix it:
+df['date'] = pd.to_datetime(df['date'])
+Make a column on a df the index of the df:
+df.set_index('column_name', inplace=True)
+Why inplace = True:
+This mutates the original, removing the column selected and setting it as the index.  without it, you get the same df, but as a return value instead of inplace
+pd.read_csv is super powerful:
+Yes, read the docs, make a practice file, gain knowledge, but it really just allows you to make transformations in one method call
+Plot it:
+df.plot()

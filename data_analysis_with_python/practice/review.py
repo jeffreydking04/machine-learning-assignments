@@ -2,35 +2,32 @@ import os
 
 file = None
 
-course_1_menu = {
-    'a': 'list.txt',
-    'b': 'dictionary.txt',
-    'c': 'tuples.txt',
-    'd': 'objects.txt',
-    'e': 'handle.txt',
-    'p': 'text_processing.txt',
-    'f': 'browser.txt',
-    'g': 'urllib.txt',
-    'h': 'networking.txt',
-    'i': 'regex.txt',
-    'j': 'api.txt',
-    'k': 'scraping.txt',
-    'l': 'sqlite.txt',
-    'm': 'web_services.txt',
-    'n': 'xml.txt',
-    'o': 'json.txt'
+menu = {
+    'x': 'indexing.txt',
+    'a': 'introduction.txt',
+    'b': 'np.txt',
+    'c': 'np.2.txt',
+    'd': 'pandas.txt',
+    'e': 'df.txt',
+    'f': 'data_cleaning.txt',
+    'g': 'dc2.txt',
+    'h': 'dupes.txt',
+    'i': 'plotting.txt',
+    'j': 'reading.txt',
+    'k': 'np_adv.txt',
+    'z': 'postgresql.txt'
 }
 
 while True:
     while not file:
         os.system('cls' if os.name == 'nt' else 'clear')
-        for k, v in course_1_menu.items():
+        for k, v in menu.items():
             print(f'{k}: {v}')
         print()
         choice = input('choose file\n')
         if choice == 'q':
             quit()
-        file = course_1_menu[choice]
+        file = menu[choice]
         try:
             fhand = open(file)
         except:
