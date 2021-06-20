@@ -2,16 +2,15 @@ import numpy as np
 
 
 def calculate(list):
-    """[summary]
-
-    Args:
+    """ Trasforms list of 9 numbers to 3.3 matrix, returns a collection of basic stats related to the matrix
+    Args: 
         list (list): List of 9 numbers
-
-    Raises:
+    Raises: 
         ValueError: When the list is not nine numbers
-
-    Returns:
-        Dictionary: keys: basic stats, values: array of axis 0 values, array of axis 1 values, flatten values
+    Returns: 
+        Dictionary: 
+            keys: basic stats 
+            values: array of axis 0 values, array of axis 1 values, flatten values
     """
 
     try:
